@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chatbot-nltk-keras"
+version = "0.1.0"
+description = "Retrieval-based chatbot using NLTK and Keras for intent classification."
+authors = [{ name = "Mobin Yousefi", email = "example@example.com" }]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+
+dependencies = [
+  "numpy>=1.25",
+  "nltk>=3.8",
+  "tensorflow>=2.16",
+  "keras>=3.0.0",
+  "scikit-learn>=1.4",
+  "rich>=13.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mobinyousefi-cs/chatbot-nltk-keras"
+Repository = "https://github.com/mobinyousefi-cs/chatbot-nltk-keras"
+
+[project.scripts]
+chatbot-cli = "chatbot_nltk_keras.chatbot:main"
+chatbot-train = "chatbot_nltk_keras.train:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "W", "I", "B"]
+ignore = ["E203", "W503"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
+testpaths = ["tests"]
